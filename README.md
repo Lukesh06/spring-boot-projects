@@ -1,2 +1,2 @@
 # spring-boot-projects
-Spring Boot Projects
+Spring Boot Projects for Practice

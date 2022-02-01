@@ -1,4 +1,4 @@
-package com.ekalavya.studentapi.dao;
+package com.ekalavya.student.dao;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,9 +7,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ekalavya.studentapi.dto.StudentDetailsDto;
-import com.ekalavya.studentapi.entity.StudentDetailsEntity;
-import com.ekalavya.studentapi.repository.StudentRepository;
+import com.ekalavya.student.dto.StudentDetailsDto;
+import com.ekalavya.student.entity.StudentDetailsEntity;
+import com.ekalavya.student.repository.StudentRepository;
 
 /**
  * @author Lukesh Bhendaker

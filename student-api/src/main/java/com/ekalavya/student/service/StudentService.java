@@ -1,8 +1,8 @@
-package com.ekalavya.studentapi.service;
+package com.ekalavya.student.service;
 
 import java.util.List;
 
-import com.ekalavya.studentapi.dto.StudentDetailsDto;
+import com.ekalavya.student.dto.StudentDetailsDto;
 
 /**
  * @author Lukesh Bhendaker

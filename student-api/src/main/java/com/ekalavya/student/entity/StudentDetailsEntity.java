@@ -1,4 +1,4 @@
-package com.ekalavya.studentapi.entity;
+package com.ekalavya.student.entity;
 
 import java.io.Serializable;
 import java.util.Date;

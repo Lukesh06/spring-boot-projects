@@ -1,9 +1,9 @@
-package com.ekalavya.studentapi.repository;
+package com.ekalavya.student.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ekalavya.studentapi.entity.StudentDetailsEntity;
+import com.ekalavya.student.entity.StudentDetailsEntity;
 
 /**
  * @author Lukesh Bhendaker	

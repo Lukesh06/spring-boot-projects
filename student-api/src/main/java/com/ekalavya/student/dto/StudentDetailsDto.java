@@ -1,4 +1,4 @@
-package com.ekalavya.studentapi.dto;
+package com.ekalavya.student.dto;
 
 import java.util.Date;
 

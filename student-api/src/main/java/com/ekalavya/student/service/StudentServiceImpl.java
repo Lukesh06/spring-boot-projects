@@ -1,4 +1,4 @@
-package com.ekalavya.studentapi.service;
+package com.ekalavya.student.service;
 
 import java.util.Calendar;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ekalavya.studentapi.dao.StudentDao;
-import com.ekalavya.studentapi.dto.StudentDetailsDto;
+import com.ekalavya.student.dao.StudentDao;
+import com.ekalavya.student.dto.StudentDetailsDto;
 
 /**
  * @author Lukesh Bhendaker

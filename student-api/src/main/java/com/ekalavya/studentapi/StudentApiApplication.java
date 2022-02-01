@@ -1,8 +1,12 @@
-package com.ekalavya.studentapi.student;
+package com.ekalavya.studentapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Lukesh Bhendaker
+ *
+ */
 @SpringBootApplication
 public class StudentApiApplication {
 

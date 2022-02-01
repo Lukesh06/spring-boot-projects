@@ -1,9 +1,13 @@
-package com.ekalavya.studentapi.student.dto;
+package com.ekalavya.studentapi.dto;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+/**
+ * @author Lukesh Bhendaker
+ *
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StudentDetailsDto {
 

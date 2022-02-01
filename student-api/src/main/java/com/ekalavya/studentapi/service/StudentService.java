@@ -1,9 +1,13 @@
-package com.ekalavya.studentapi.student.service;
+package com.ekalavya.studentapi.service;
 
 import java.util.List;
 
-import com.ekalavya.studentapi.student.dto.StudentDetailsDto;
+import com.ekalavya.studentapi.dto.StudentDetailsDto;
 
+/**
+ * @author Lukesh Bhendaker
+ *
+ */
 public interface StudentService {
 
 	public StudentDetailsDto createStudent(StudentDetailsDto studentDetailsDto);

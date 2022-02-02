@@ -69,7 +69,7 @@
 			"response": []
 		},
 		{
-			"name": "GetByParameter",
+			"name": "GetByParameter - Class and City",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -104,6 +104,44 @@
 						{
 							"key": "city",
 							"value": "Bhopal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByParameter - RollNumber",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/students/byParameter?rollNumber=078960",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"students",
+						"byParameter"
+					],
+					"query": [
+						{
+							"key": "rollNumber",
+							"value": "078960"
 						}
 					]
 				}

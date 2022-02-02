@@ -12,6 +12,8 @@ import com.ekalavya.student.entity.StudentDetailsEntity;
 import com.ekalavya.student.repository.StudentRepository;
 
 /**
+ * Dao class to perform DB operations
+ * 
  * @author Lukesh Bhendaker
  *
  */
@@ -20,7 +22,13 @@ public class StudentDao {
 
 	@Autowired
 	private StudentRepository studentRepository;
-	
+
+	/**
+	 * This method is used to save student records in DB
+	 * 
+	 * @param studentDetailsDto DTO bean object with student details to save
+	 * @return studentDetailsDto DTO bean object after save
+	 */
 	public StudentDetailsDto createStudent(StudentDetailsDto studentDetailsDto) {
 		StudentDetailsEntity studentDetailsEntity = new StudentDetailsEntity();
 		BeanUtils.copyProperties(studentDetailsDto, studentDetailsEntity);
@@ -28,17 +36,20 @@ public class StudentDao {
 		BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
 		return studentDetailsDto;
 	}
- 
-	public List<StudentDetailsDto> getAllStudents(){
+
+	/**
+	 * This method is used to read all student details from DB
+	 * 
+	 * @return List of Student Dto bean objects with all details read from DB
+	 */
+	public List<StudentDetailsDto> getAllStudents() {
 		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository.findAll();
-		
-		return listStudentDetailsEntity.stream().map(studentDetailsEntity->
-		{
+
+		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
 			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
 			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
 			return studentDetailsDto;
 		}).collect(Collectors.toList());
 	}
-	
-	
+
 }

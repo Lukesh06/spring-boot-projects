@@ -37,10 +37,30 @@
 			"response": []
 		},
 		{
-			"name": "Create Copy",
+			"name": "Create",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Raghav Kulkarni\",\r\n    \"rollNumber\":\"078960\",\r\n    \"studentClass\":11,\r\n    \"section\":\"B\",\r\n    \"addressLine\":\"Maharaja Road\",\r\n    \"city\":\"Indore\",\r\n    \"state\":\"Madhya Pradesh\",\r\n    \"pinCode\":\"478542\",\r\n    \"mobileNumber\":\"8745896521\",\r\n    \"email\":\"raghav.kulkarni@gmail.com\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"students"
+					]
+				}
 			},
 			"response": []
 		}

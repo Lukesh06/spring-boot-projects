@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.ekalavya.student.entity.StudentDetailsEntity;
 
 /**
- * @author Lukesh Bhendaker	
+ * Repository Class to perform DB operatons
+ * 
+ * @author Lukesh Bhendaker
  *
  */
 @Repository

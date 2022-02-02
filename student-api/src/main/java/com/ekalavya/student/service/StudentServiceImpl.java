@@ -18,7 +18,13 @@ public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentDao studentDao;
-	
+
+	/**
+	 * This method is used to save student records in DB
+	 * 
+	 * @param studentDetailsDto DTO bean object with student details to save
+	 * @return studentDetailsDto DTO bean object after save
+	 */
 	@Override
 	public StudentDetailsDto createStudent(StudentDetailsDto studentDetailsDto) {
 		final Calendar calendar = Calendar.getInstance();
@@ -27,6 +33,11 @@ public class StudentServiceImpl implements StudentService {
 		return studentDetailsDto;
 	}
 
+	/**
+	 * This method is used to read all student details from DB
+	 * 
+	 * @return List of Student Dto bean objects with all details read from DB
+	 */
 	@Override
 	public List<StudentDetailsDto> getAllStudents() {
 		return studentDao.getAllStudents();

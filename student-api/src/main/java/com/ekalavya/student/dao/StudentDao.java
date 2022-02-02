@@ -41,11 +41,13 @@ public class StudentDao {
 		studentDetailsEntity.setCreatedDate(calendar.getTime());
 		studentDetailsEntity = studentRepository.save(studentDetailsEntity);
 		BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
+		populateDate(studentDetailsEntity, studentDetailsDto);
+		return studentDetailsDto;
+	}
 
+	private void populateDate(StudentDetailsEntity studentDetailsEntity, StudentDetailsDto studentDetailsDto) {
 		String createdDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(studentDetailsEntity.getCreatedDate());
 		studentDetailsDto.setCreatedDate(createdDate);
-
-		return studentDetailsDto;
 	}
 
 	/**
@@ -56,11 +58,7 @@ public class StudentDao {
 	public List<StudentDetailsDto> getAllStudents() {
 		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository.findAll();
 
-		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
-			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
-			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
-			return studentDetailsDto;
-		}).collect(Collectors.toList());
+		return prepareListOfDto(listStudentDetailsEntity);
 	}
 
 	public StudentDetailsDto getStudentByStudentId(int studentId) {
@@ -68,34 +66,34 @@ public class StudentDao {
 		StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
 		if (optionalEntity.isPresent()) {
 			BeanUtils.copyProperties(optionalEntity.get(), studentDetailsDto);
+			populateDate(optionalEntity.get(), studentDetailsDto);
 		}
 		return studentDetailsDto;
 	}
-	
+
 	public List<StudentDetailsDto> getStudentByRollNumber(String rollNumber) {
-		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository.findByRollNumber(rollNumber);
-
-		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
-			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
-			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
-			return studentDetailsDto;
-		}).collect(Collectors.toList());
+		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository
+				.findByRollNumber(rollNumber);
+		return prepareListOfDto(listStudentDetailsEntity);
 	}
-	
-	
+
 	public List<StudentDetailsDto> getStudentByClassAndCity(int studentClass, String city) {
-		
-		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository.findByStudentClassAndCityOrderByNameAsc(studentClass, city);
-
-		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
-			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
-			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
-			return studentDetailsDto;
-		}).collect(Collectors.toList());
+		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository
+				.findByStudentClassAndCityOrderByNameAsc(studentClass, city);
+		return prepareListOfDto(listStudentDetailsEntity);
 	}
-	
+
 	public void updateSection(int studentId, String section) {
 		studentRepository.updateSectionForStudentId(studentId, section);
+	}
+
+	private List<StudentDetailsDto> prepareListOfDto(List<StudentDetailsEntity> listStudentDetailsEntity) {
+		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
+			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
+			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
+			populateDate(studentDetailsEntity, studentDetailsDto);
+			return studentDetailsDto;
+		}).collect(Collectors.toList());
 	}
 
 }

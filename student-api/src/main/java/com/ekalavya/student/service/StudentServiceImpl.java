@@ -1,6 +1,5 @@
 package com.ekalavya.student.service;
 
-import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,7 @@ public class StudentServiceImpl implements StudentService {
 	 */
 	@Override
 	public StudentDetailsDto createStudent(StudentDetailsDto studentDetailsDto) {
-		final Calendar calendar = Calendar.getInstance();
-		studentDetailsDto.setCreatedDate(calendar.getTime());
+	
 		studentDetailsDto = studentDao.createStudent(studentDetailsDto);
 		return studentDetailsDto;
 	}
@@ -41,6 +39,27 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public List<StudentDetailsDto> getAllStudents() {
 		return studentDao.getAllStudents();
+	}
+
+	@Override
+	public StudentDetailsDto getStudentByStudentId(int studentId) {
+		return studentDao.getStudentByStudentId(studentId);
+	}
+
+	@Override
+	public List<StudentDetailsDto> getStudentByRollNumber(String rollNumber) {
+		return studentDao.getStudentByRollNumber(rollNumber);
+	}
+
+	@Override
+	public List<StudentDetailsDto> getStudentByClassAndCity(int studentClass, String city) {
+		return studentDao.getStudentByClassAndCity(studentClass, city);
+	}
+
+	@Override
+	public void updateSection(int studentId, String section) {
+		studentDao.updateSection(studentId, section);
+		
 	}
 
 }

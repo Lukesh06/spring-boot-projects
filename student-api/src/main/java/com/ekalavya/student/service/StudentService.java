@@ -24,5 +24,13 @@ public interface StudentService {
 	 * @return List of Student Dto bean objects with all details read from DB
 	 */
 	public List<StudentDetailsDto> getAllStudents();
+	
+	public StudentDetailsDto getStudentByStudentId(int studentId);
+	
+	public List<StudentDetailsDto> getStudentByRollNumber(String rollNumber);
+	
+	public List<StudentDetailsDto> getStudentByClassAndCity(int studentClass, String city);
+	
+	public void updateSection(int studentId, String section);
 
 }

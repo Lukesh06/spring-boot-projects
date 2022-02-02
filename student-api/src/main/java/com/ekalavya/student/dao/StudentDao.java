@@ -1,6 +1,10 @@
 package com.ekalavya.student.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
+import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
@@ -32,8 +36,15 @@ public class StudentDao {
 	public StudentDetailsDto createStudent(StudentDetailsDto studentDetailsDto) {
 		StudentDetailsEntity studentDetailsEntity = new StudentDetailsEntity();
 		BeanUtils.copyProperties(studentDetailsDto, studentDetailsEntity);
+		TimeZone timeZone = TimeZone.getTimeZone("IST");
+		final Calendar calendar = Calendar.getInstance(timeZone);
+		studentDetailsEntity.setCreatedDate(calendar.getTime());
 		studentDetailsEntity = studentRepository.save(studentDetailsEntity);
 		BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
+
+		String createdDate = new SimpleDateFormat("yyyy-MM-dd HH:mm").format(studentDetailsEntity.getCreatedDate());
+		studentDetailsDto.setCreatedDate(createdDate);
+
 		return studentDetailsDto;
 	}
 
@@ -50,6 +61,41 @@ public class StudentDao {
 			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
 			return studentDetailsDto;
 		}).collect(Collectors.toList());
+	}
+
+	public StudentDetailsDto getStudentByStudentId(int studentId) {
+		Optional<StudentDetailsEntity> optionalEntity = studentRepository.findById(studentId);
+		StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
+		if (optionalEntity.isPresent()) {
+			BeanUtils.copyProperties(optionalEntity.get(), studentDetailsDto);
+		}
+		return studentDetailsDto;
+	}
+	
+	public List<StudentDetailsDto> getStudentByRollNumber(String rollNumber) {
+		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository.findByRollNumber(rollNumber);
+
+		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
+			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
+			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
+			return studentDetailsDto;
+		}).collect(Collectors.toList());
+	}
+	
+	
+	public List<StudentDetailsDto> getStudentByClassAndCity(int studentClass, String city) {
+		
+		List<StudentDetailsEntity> listStudentDetailsEntity = (List<StudentDetailsEntity>) studentRepository.findByStudentClassAndCityOrderByNameAsc(studentClass, city);
+
+		return listStudentDetailsEntity.stream().map(studentDetailsEntity -> {
+			StudentDetailsDto studentDetailsDto = new StudentDetailsDto();
+			BeanUtils.copyProperties(studentDetailsEntity, studentDetailsDto);
+			return studentDetailsDto;
+		}).collect(Collectors.toList());
+	}
+	
+	public void updateSection(int studentId, String section) {
+		studentRepository.updateSectionForStudentId(studentId, section);
 	}
 
 }

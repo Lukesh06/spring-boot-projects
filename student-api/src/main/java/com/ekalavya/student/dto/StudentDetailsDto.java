@@ -1,7 +1,5 @@
 package com.ekalavya.student.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
@@ -22,7 +20,7 @@ public class StudentDetailsDto {
 	private String pinCode;
 	private String mobileNumber;
 	private String email;
-	private Date createdDate;
+	private String createdDate;
 	public int getStudentId() {
 		return studentId;
 	}
@@ -90,10 +88,10 @@ public class StudentDetailsDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
 	

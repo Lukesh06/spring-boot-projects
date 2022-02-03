@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "d27dd6cd-3264-4d5a-b43b-23f431b13f92",
+		"name": "student-CRUD-Using-API-Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAllStudents",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/student-api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"student-api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/student-api/students/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"student-api",
+						"students",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByParameter - Class and City",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/student-api/students/byParameter?studentClass=10&city=Bhopal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"student-api",
+						"students",
+						"byParameter"
+					],
+					"query": [
+						{
+							"key": "studentClass",
+							"value": "10"
+						},
+						{
+							"key": "city",
+							"value": "Bhopal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByParameter - RollNumber",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/student-api/students/byParameter?rollNumber=078958",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"student-api",
+						"students",
+						"byParameter"
+					],
+					"query": [
+						{
+							"key": "rollNumber",
+							"value": "078958"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Priyanka Shrivastava\",\r\n    \"rollNumber\":\"078965\",\r\n    \"studentClass\":10,\r\n    \"section\":\"A\",\r\n    \"addressLine\":\"Stop No 10\",\r\n    \"city\":\"Bhopal\",\r\n    \"state\":\"Madhya Pradesh\",\r\n    \"pinCode\":\"482365\",\r\n    \"mobileNumber\":\"9854785663\",\r\n    \"email\":\"priyanka.shrivastava@gmail.com\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/student-api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"student-api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Section",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"studentId\": 9,\r\n    \"section\":\"B\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/student-api/students/updateSection",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"student-api",
+						"students",
+						"updateSection"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

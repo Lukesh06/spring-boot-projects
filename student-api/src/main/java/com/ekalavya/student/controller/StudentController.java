@@ -3,6 +3,7 @@ package com.ekalavya.student.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,9 @@ public class StudentController {
 
 	@Autowired
 	private StudentService studentService;
+	
+	@Autowired
+	private Environment environment;
 
 	/**
 	 * This method is used to create student record in DB
@@ -84,6 +88,11 @@ public class StudentController {
 		studentService.updateSection(studentDetailsDto.getStudentId(), studentDetailsDto.getSection());
 		return new ResponseEntity<String>("Student record Updated for student id " + studentDetailsDto.getStudentId(),
 				HttpStatus.OK);
+	}
+	
+	@GetMapping("/testLoadBalancer")
+	public String testLoadBalancer() {
+		return "Served by Port:::"+environment.getProperty("local.server.port");
 	}
 
 }

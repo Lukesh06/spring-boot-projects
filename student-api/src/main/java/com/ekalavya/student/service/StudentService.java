@@ -2,6 +2,7 @@ package com.ekalavya.student.service;
 
 import java.util.List;
 
+import com.ekalavya.student.dto.ResultDto;
 import com.ekalavya.student.dto.StudentDetailsDto;
 
 /**
@@ -32,5 +33,7 @@ public interface StudentService {
 	public List<StudentDetailsDto> getStudentByClassAndCity(int studentClass, String city);
 	
 	public void updateSection(int studentId, String section);
-
+	
+	public List<ResultDto> getResultByStudentId(int studentId);
+	
 }

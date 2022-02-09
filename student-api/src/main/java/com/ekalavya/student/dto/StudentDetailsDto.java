@@ -1,5 +1,7 @@
 package com.ekalavya.student.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
@@ -21,6 +23,7 @@ public class StudentDetailsDto {
 	private String mobileNumber;
 	private String email;
 	private String createdDate;
+	private List<ResultDto> resultDto;
 	public int getStudentId() {
 		return studentId;
 	}
@@ -93,6 +96,12 @@ public class StudentDetailsDto {
 	}
 	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
+	}
+	public List<ResultDto> getResultDto() {
+		return resultDto;
+	}
+	public void setResultDto(List<ResultDto> resultDto) {
+		this.resultDto = resultDto;
 	}
 	
 }

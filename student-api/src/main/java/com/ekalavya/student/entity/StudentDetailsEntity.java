@@ -57,7 +57,7 @@ public class StudentDetailsEntity implements Serializable{
 	
 	@Column(name = "CREATED_DATE")
 	private Date createdDate;
-
+	
 	public int getStudentId() {
 		return studentId;
 	}

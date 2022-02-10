@@ -2,51 +2,56 @@ package com.ekalavya.student.dto;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultDto {
 
-	private int resultId;
+	private Integer resultId;
 
-	private int studentId;
+	private Integer studentId;
 
-	private int totalMarks;
+	private Integer totalMarks;
 
-	private int marksObtained;
+	private Integer marksObtained;
 
 	private BigDecimal percentage;
 
-	private int division;
+	private Integer division;
 
-	private int yearofExam;
+	private Integer yearofExam;
+	
+	private String errorMessage;
 
-	public int getResultId() {
+	public Integer getResultId() {
 		return resultId;
 	}
 
-	public void setResultId(int resultId) {
+	public void setResultId(Integer resultId) {
 		this.resultId = resultId;
 	}
 
-	public int getStudentId() {
+	public Integer getStudentId() {
 		return studentId;
 	}
 
-	public void setStudentId(int studentId) {
+	public void setStudentId(Integer studentId) {
 		this.studentId = studentId;
 	}
 
-	public int getTotalMarks() {
+	public Integer getTotalMarks() {
 		return totalMarks;
 	}
 
-	public void setTotalMarks(int totalMarks) {
+	public void setTotalMarks(Integer totalMarks) {
 		this.totalMarks = totalMarks;
 	}
 
-	public int getMarksObtained() {
+	public Integer getMarksObtained() {
 		return marksObtained;
 	}
 
-	public void setMarksObtained(int marksObtained) {
+	public void setMarksObtained(Integer marksObtained) {
 		this.marksObtained = marksObtained;
 	}
 
@@ -58,20 +63,30 @@ public class ResultDto {
 		this.percentage = percentage;
 	}
 
-	public int getDivision() {
+	public Integer getDivision() {
 		return division;
 	}
 
-	public void setDivision(int division) {
+	public void setDivision(Integer division) {
 		this.division = division;
 	}
 
-	public int getYearofExam() {
+	public Integer getYearofExam() {
 		return yearofExam;
 	}
 
-	public void setYearofExam(int yearofExam) {
+	public void setYearofExam(Integer yearofExam) {
 		this.yearofExam = yearofExam;
 	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	
 
 }

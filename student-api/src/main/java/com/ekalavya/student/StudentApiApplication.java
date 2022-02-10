@@ -8,6 +8,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+import feign.Logger;
+
 /**
  * @author Lukesh Bhendaker
  *
@@ -27,5 +29,9 @@ public class StudentApiApplication {
 		return new RestTemplate();
 	}
 	
+	@Bean
+	public Logger.Level getFeignLogger(){
+		return Logger.Level.FULL;
+	}
 
 }

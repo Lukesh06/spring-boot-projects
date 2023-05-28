@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "9b5136cd-eb1b-49f3-b61b-3fe3fe9b4b4a",
+		"name": "User-Details",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9792683"
+	},
+	"item": [
+		{
+			"name": "Get- Method demo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<UserResponseModel>\r\n    <firstName>Gaurav</firstName>\r\n    <lastName>Shrivastava</lastName>\r\n    <emailId>gaurav.shrivastava@gmail.com</emailId>\r\n    <addressLine>Ward No 15</addressLine>\r\n    <city>Balaghat</city>\r\n    <state>Madhya Pradesh</state>\r\n    <pinCode>481001</pinCode>\r\n    <mobileNumber>9854567890</mobileNumber>\r\n</UserResponseModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-update User",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<UserResponseModel>\r\n    <mobileNumber>9858967890</mobileNumber>\r\n</UserResponseModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n\t\"firstName\": \"Ashish\",\r\n\t\"lastName\": \"Kumar\",\r\n\t\"emailId\": \"ashish.kumar@gmail.com\",\r\n\t\"addressLine\": \"Hoshangabad Road\",\r\n\t\"city\": \"Bhopal\",\r\n\t\"state\": \"Madhya Pradesh\",\r\n\t\"mobileNumber\": \"9874854125\",\r\n    \"pinCode\":\"484001\"\r\n}, {\r\n\t\"firstName\": \"Rahul\",\r\n\t\"lastName\": \"Meshram\",\r\n\t\"emailId\": \"rahul.meshram@gmail.com\",\r\n\t\"addressLine\": \"New Market\",\r\n\t\"city\": \"Bhopal\",\r\n\t\"state\": \"Madhya Pradesh\",\r\n\t\"mobileNumber\": \"9854214526\",\r\n    \"pinCode\":\"484002\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/multiple",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"multiple"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put-Method demo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-Method demo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-User By User Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-User By first Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/firstName/Gaurav",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"firstName",
+						"Gaurav"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-User By first Name And City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/firstNameAndCity?firstName=Gaurav&city=Sagar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"firstNameAndCity"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Gaurav"
+						},
+						{
+							"key": "city",
+							"value": "Sagar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-User By first Name Last Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/firstNameAndLastName?firstName=gaurav&lastName=sharma&operation=And",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"firstNameAndLastName"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "gaurav"
+						},
+						{
+							"key": "lastName",
+							"value": "sharma"
+						},
+						{
+							"key": "operation",
+							"value": "And"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
